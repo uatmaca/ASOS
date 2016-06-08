@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{userListView.init}"/>
+    </f:metadata>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <p:dataScroller value="#{userListView.users}" var="user" chunkSize="10">
+            <f:facet name="header">
+                Kullanıcı Listesi
+            </f:facet>
+
+            <f:facet name="loader">
+                <p:commandButton type="button" value="Daha Fazla..." icon="ui-icon-circle-triangle-s"/>
+            </f:facet>
+
+            <h:panelGrid columns="1" style="width:100%" >
+                <p:outputPanel>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{user.userId}" style="font-weight: bold"/>
+
+                        <h:outputText value="Adı:" />
+                        <h:outputText value="#{user.name}" style="font-weight: bold"/>
+
+                        <h:outputText value="Soyadı:" />
+                        <h:outputText value="#{user.surname}" style="font-weight: bold"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+            </h:panelGrid>
+        </p:dataScroller>
+    </h:form>
+
+
+</h:body>
+</html>

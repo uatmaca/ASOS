@@ -1,0 +1,20 @@
+/*Ana bölüm yazı tipi ayarlandı*/
+.ui-widget .ui-widget {
+    font-size: 12px;
+}
+
+
+/*Panel yazısı tam sığdırıldı*/
+.ui-panelmenu .ui-panelmenu-header a {
+    display: block;
+    font-size: 1em;
+    padding: .5em .5em .5em 2.2em;
+    width: 100%;
+}
+
+#loginPanel {
+    top:45%;
+    left:45%;
+    position: fixed;
+}
+

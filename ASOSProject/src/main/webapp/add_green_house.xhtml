@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{newGreenHouseBean.init}"/>
+    </f:metadata>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="framestyle.css"/>
+</h:head>
+<h:body>
+    <p:panel>
+        <p:layout>
+            <p:layoutUnit position="center" header="Sera Bilgileri">
+                <h:form>
+                    <p:panelGrid columns="2" >
+                        <p:outputLabel value="Sera İsmi: "/>
+                        <p:inputText value="#{newGreenHouseBean.greenHouseName}"/>
+
+                        <p:outputLabel value="Bulunduğu Şehir: "/>
+                        <p:inputText value="#{newGreenHouseBean.greenHouseCity}"/>
+
+                        <p:outputLabel value="Bulunduğu İlçe: "/>
+                        <p:inputText value="#{newGreenHouseBean.greenHouseDistrict}"/>
+
+                        <p:outputLabel value="İçerdiği Ürün: "/>
+                        <p:selectOneMenu value="#{newGreenHouseBean.product}" converter="omnifaces.SelectItemsConverter">
+                            <f:selectItems value="#{newGreenHouseBean.products}" var="productVar" itemLabel="#{productVar.productName}" itemValue="#{productVar}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Sahip Olan Kullanıcı: " />
+                        <p:selectOneMenu value="#{newGreenHouseBean.user}" converter="omnifaces.SelectItemsConverter">
+                            <f:selectItems value="#{newGreenHouseBean.users}" var="userVar" itemLabel="#{userVar.userName}" itemValue="#{userVar}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value=""/>
+                        <p:commandButton value="Kaydet" action="#{newGreenHouseBean.addGreenHouse}"/>
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </p:panel>
+</h:body>
+</html>

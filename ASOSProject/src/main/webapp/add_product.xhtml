@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="framestyle.css"/>
+</h:head>
+<h:body>
+    <p:panel>
+        <p:layout>
+            <p:layoutUnit position="center" header="Kullanıcı Bilgileri">
+                <h:form>
+                    <p:panelGrid columns="2" >
+                        <p:outputLabel value="Ürün Adı : "/>
+                        <p:inputText value="#{productBean.productName}"/>
+
+                        <p:outputLabel value="En Düşük Sıcaklık : "/>
+                        <p:inputText value="#{productBean.minProductTemp}"/>
+
+                        <p:outputLabel value="En Yüksek Sıcaklık : "/>
+                        <p:inputText value="#{productBean.maxProductTemp}"/>
+
+                        <p:outputLabel value="En Düşük Nem Oranı : "/>
+                        <p:inputText value="#{productBean.minProductDump}"/>
+
+                        <p:outputLabel value="En Yüksek Nem Oranı : "/>
+                        <p:inputText value="#{productBean.maxProductDump}"/>
+
+                        <p:outputLabel value=""/>
+                        <p:commandButton value="Kaydet" action="#{productBean.addProductBean}"/>
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </p:panel>
+</h:body>
+</html>

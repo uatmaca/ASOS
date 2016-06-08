@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Akıllı Sera Otomasyon Sistemi</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+    <p:layout fullPage="true">
+        <p:layoutUnit position="center">
+            <p:panel id="loginPanel" header="Giriş">
+                <h:form>
+                    <h:outputLabel value="Kullanıcı Adı :"/><br/>
+                    <p:inputText value="#{loginBean.userName}" title="Kullanıcı Adı"/><br/>
+                    <h:outputLabel value="Şifre : "/><br/>
+                    <p:password value="#{loginBean.passsword}" title="Şifre"
+                                promptLabel="Lütfen şifre giriniz"/><br/>
+                    <p:commandButton value="Giriş" action="#{loginBean.login}"/><br/>
+                </h:form>
+            </p:panel>
+        </p:layoutUnit>
+
+    </p:layout>
+</h:body>
+</html>

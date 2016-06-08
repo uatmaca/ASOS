@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <p:dataScroller value="#{userBean.greenHouses}" var="greenHouseVar" chunkSize="10">
+            <f:facet name="header">
+                Seralarım
+            </f:facet>
+
+            <f:facet name="loader">
+                <p:commandButton type="button" value="Daha Fazla..." icon="ui-icon-circle-triangle-s"/>
+            </f:facet>
+
+            <h:panelGrid columns="1" style="width:100%">
+                <p:outputPanel>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{greenHouseVar.greenHouseId}" style="font-weight: bold"/>
+
+                        <h:outputText value="Adı:" />
+                        <h:outputText value="#{greenHouseVar.greenHouseName}" style="font-weight: bold"/>
+
+                        <h:outputText value="Şehir:" />
+                        <h:outputText value="#{greenHouseVar.greenHouseCity}" style="font-weight: bold"/>
+
+                        <h:commandButton value="Görüntüle" action="#{greenHouseBean.goGreenHouseInfo}" style="background-color: green">
+                            <f:param name="paramGreenHouseId" value="#{greenHouseVar.greenHouseId}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </p:outputPanel>
+            </h:panelGrid>
+        </p:dataScroller>
+    </h:form>
+
+
+</h:body>
+</html>

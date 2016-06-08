@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="framestyle.css"/>
+</h:head>
+<h:body>
+    <p:panel>
+        <p:layout>
+            <p:layoutUnit position="center" header="Kullanıcı Bilgileri">
+                <h:form>
+                    <p:panelGrid columns="2" >
+                        <p:outputLabel value="Kullanıcı Adı : "/>
+                        <p:inputText value="#{userBean.userName}"/>
+
+                        <p:outputLabel value="İsim : "/>
+                        <p:inputText value="#{userBean.name}"/>
+
+                        <p:outputLabel value="Soyisim : "/>
+                        <p:inputText value="#{userBean.surname}"/>
+
+                        <p:outputLabel value="Şifre : "/>
+                        <p:password value="#{userBean.password}"/>
+
+                        <p:outputLabel value=""/>
+                        <p:commandButton value="Kaydet" action="#{userBean.saveChange}"/>
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </p:panel>
+</h:body>
+</html>
